@@ -1,0 +1,192 @@
+{
+  "steps": [
+    {
+      "step": "Loaded",
+      "rows": 43824
+    },
+    {
+      "step": "Dropped rows with an unknown label",
+      "rows": 1
+    },
+    {
+      "step": "Dropped empty / too-short text (<2 letters)",
+      "rows": 222
+    },
+    {
+      "step": "Dropped texts whose duplicates carry different labels",
+      "rows": 563,
+      "groups": 198
+    },
+    {
+      "step": "Removed duplicates (same text after normalisation)",
+      "rows": 4358
+    }
+  ],
+  "loaded_by_source": {
+    "roman_urdu_uci": 20229,
+    "urdu_products": 13687,
+    "daraz_reviews": 3393,
+    "english_finegrained": 2515,
+    "urdu_sentiment_corpus": 1000,
+    "english_uci_amazon": 1000,
+    "english_uci_yelp": 1000,
+    "english_uci_imdb": 1000
+  },
+  "final_rows": 38680,
+  "by_split": {
+    "train": 30946,
+    "test": 3867,
+    "val": 3867
+  },
+  "label_by_split": {
+    "train": {
+      "positive": 10939,
+      "neutral": 10710,
+      "negative": 9297
+    },
+    "val": {
+      "positive": 1367,
+      "neutral": 1338,
+      "negative": 1162
+    },
+    "test": {
+      "positive": 1367,
+      "neutral": 1338,
+      "negative": 1162
+    }
+  },
+  "by_source_label": {
+    "daraz_reviews": {
+      "positive": 1972,
+      "negative": 848,
+      "neutral": 499
+    },
+    "english_finegrained": {
+      "negative": 1318,
+      "positive": 922,
+      "neutral": 271
+    },
+    "english_uci_amazon": {
+      "negative": 489,
+      "positive": 488
+    },
+    "english_uci_imdb": {
+      "negative": 497,
+      "positive": 496
+    },
+    "english_uci_yelp": {
+      "positive": 499,
+      "negative": 495
+    },
+    "roman_urdu_uci": {
+      "neutral": 8311,
+      "positive": 5787,
+      "negative": 5230
+    },
+    "urdu_products": {
+      "neutral": 4285,
+      "positive": 3035,
+      "negative": 2250
+    },
+    "urdu_sentiment_corpus": {
+      "negative": 494,
+      "positive": 474,
+      "neutral": 20
+    }
+  },
+  "detected_language": {
+    "roman_urdu": 21057,
+    "urdu": 10349,
+    "english": 6233,
+    "mixed_roman_english": 809,
+    "mixed_urdu_english": 209,
+    "uncertain": 23
+  },
+  "language_by_source": {
+    "daraz_reviews": {
+      "roman_urdu": 3134,
+      "mixed_roman_english": 151,
+      "english": 32,
+      "uncertain": 2
+    },
+    "english_finegrained": {
+      "english": 2507,
+      "roman_urdu": 3,
+      "mixed_roman_english": 1
+    },
+    "english_uci_amazon": {
+      "english": 976,
+      "roman_urdu": 1
+    },
+    "english_uci_imdb": {
+      "english": 991,
+      "uncertain": 1,
+      "roman_urdu": 1
+    },
+    "english_uci_yelp": {
+      "english": 992,
+      "mixed_roman_english": 1,
+      "roman_urdu": 1
+    },
+    "roman_urdu_uci": {
+      "roman_urdu": 17916,
+      "english": 735,
+      "mixed_roman_english": 656,
+      "uncertain": 20,
+      "mixed_urdu_english": 1
+    },
+    "urdu_products": {
+      "urdu": 9362,
+      "mixed_urdu_english": 207,
+      "roman_urdu": 1
+    },
+    "urdu_sentiment_corpus": {
+      "urdu": 987,
+      "mixed_urdu_english": 1
+    }
+  },
+  "test_language_label": {
+    "english": {
+      "negative": 284,
+      "positive": 260,
+      "neutral": 78
+    },
+    "mixed_roman_english": {
+      "neutral": 37,
+      "positive": 25,
+      "negative": 22
+    },
+    "mixed_urdu_english": {
+      "neutral": 18,
+      "positive": 5,
+      "negative": 2
+    },
+    "roman_urdu": {
+      "neutral": 790,
+      "positive": 731,
+      "negative": 582
+    },
+    "uncertain": {
+      "neutral": 3
+    },
+    "urdu": {
+      "neutral": 412,
+      "positive": 346,
+      "negative": 272
+    }
+  },
+  "words_per_text": {
+    "count": 38680.0,
+    "mean": 13.9,
+    "std": 13.2,
+    "min": 1.0,
+    "25%": 6.0,
+    "50%": 10.0,
+    "75%": 17.0,
+    "max": 296.0
+  },
+  "contamination_check": {
+    "shared_keys_train_test": 0,
+    "shared_keys_train_val": 0
+  }
+}

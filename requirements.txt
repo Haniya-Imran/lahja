@@ -1,0 +1,6 @@
+# Production API (what Vercel installs). Training needs requirements-train.txt as well.
+fastapi==0.162.2
+python-multipart==0.0.32
+numpy==2.5.3
+onnxruntime==1.29.0
+tokenizers==0.23.3
