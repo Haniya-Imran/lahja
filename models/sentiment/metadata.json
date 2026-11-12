@@ -1,0 +1,94 @@
+{
+  "display_name": "Lahja sentiment (fine-tuned Multilingual MiniLM, int8)",
+  "version": "1.0.0",
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "max_len": 128,
+  "stride": 32,
+  "temperature": 1.45,
+  "low_confidence": 0.55,
+  "onnx_file": "model.onnx",
+  "cls_token": "<s>",
+  "sep_token": "</s>",
+  "pad_token": "<pad>",
+  "base_model": "microsoft/Multilingual-MiniLM-L12-H384",
+  "base_model_license": "MIT",
+  "tokenizer": "XLM-R SentencePiece (trimmed)",
+  "size_mb": 42.8,
+  "created_at": "2026-11-12T13:16:11+00:00",
+  "training": {
+    "args": {
+      "model": "models/pretrained/minilm_trimmed",
+      "tokenizer": null,
+      "epochs": 4,
+      "lr": 8e-05,
+      "batch": 32,
+      "max_len": 128,
+      "patience": 1,
+      "train_limit": 0,
+      "eval_every": 0,
+      "out": "models/checkpoints/final",
+      "seed": 42,
+      "threads": 2,
+      "freeze_word_embeddings": false
+    },
+    "train_rows": 30946,
+    "val_rows": 3867,
+    "truncated_train": 150,
+    "class_weights": [
+      1.1095335483551025,
+      0.9631497263908386,
+      0.9429868459701538
+    ],
+    "trainable_params": 41964675,
+    "best": {
+      "epoch": 3,
+      "step": 2904,
+      "train_loss": 0.5686,
+      "val_macro_f1": 0.7109,
+      "minutes": 41.9
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "step": 968,
+        "train_loss": 0.8706,
+        "val_macro_f1": 0.6348,
+        "minutes": 14.4
+      },
+      {
+        "epoch": 2,
+        "step": 1936,
+        "train_loss": 0.6899,
+        "val_macro_f1": 0.6821,
+        "minutes": 28.1
+      },
+      {
+        "epoch": 3,
+        "step": 2904,
+        "train_loss": 0.5686,
+        "val_macro_f1": 0.7109,
+        "minutes": 41.9
+      },
+      {
+        "epoch": 4,
+        "step": 3872,
+        "train_loss": 0.4685,
+        "val_macro_f1": 0.7058,
+        "minutes": 55.5
+      }
+    ],
+    "minutes_total": 55.5,
+    "vocab_trim": {
+      "original_pieces": 250002,
+      "kept_pieces": 52927,
+      "seen_in_train_val": 18343,
+      "params_before": 117653760,
+      "params_after": 41963520,
+      "rule": "train/val pieces + single characters + special tokens + top-30k unigram prior; test split not used"
+    }
+  }
+}

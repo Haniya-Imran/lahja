@@ -16,6 +16,9 @@ export default function Performance() {
   const hist = tr.history || []
   const comp = c.model_comparison
   const langs = Object.entries(c.test_by_language as Record<string, any>).sort((a, b) => b[1].n - a[1].n)
+  const reliable = langs.filter(([, v]) => v.reliable)
+  const wins = base ? reliable.filter(([k, v]) => v.macro_f1 > (base.test_by_language[k]?.macro_f1 ?? 1)).map(([k]) => LANG_LABEL[k]) : []
+  const losses = base ? reliable.filter(([k, v]) => v.macro_f1 < (base.test_by_language[k]?.macro_f1 ?? 0)).map(([k]) => LANG_LABEL[k]) : []
 
   return (
     <>
@@ -30,13 +33,22 @@ export default function Performance() {
           <Kpi label="Model size" value={`${m.size_mb} MB`} hint={`int8 ONNX · ${c.throughput_reviews_per_sec_2cpu} reviews/s on 2 CPUs`} />
         </div>
 
+        {base && (
+          <div className="note ink">
+            <b>Honest comparison:</b> overall, the Transformer scores {t.macro_f1.toFixed(3)} macro-F1 and the simple TF-IDF baseline {base.test.macro_f1.toFixed(3)} on the same test reviews.
+            {wins.length > 0 && <> The Transformer is better on {wins.join(', ')}.</>}
+            {losses.length > 0 && <> The baseline is better on {losses.join(', ')}, where informal spellings vary a lot and character patterns help.</>}
+            {' '}Lahja serves the Transformer because it handles meaning and word order and gives calibrated confidence and word-level explanations.
+          </div>
+        )}
+
         <div className="card">
           <div className="card-head"><div><h3>The model</h3><p className="sub">{m.display_name} · version {m.version}</p></div></div>
           <div className="grid g3 small">
             <div><div className="label">Base model</div><p>{m.base_model} ({m.base_model_license})</p></div>
             <div><div className="label">Training</div><p className="num">{(tr.train_rows || 0).toLocaleString()} reviews · {tr.history?.length || 0} evaluations · best epoch {tr.best?.epoch} · {tr.minutes_total} min on CPU</p></div>
-            <div><div className="label">Trainable parameters</div><p className="num">{(tr.trainable_params || 0).toLocaleString()} (word embeddings kept frozen)</p></div>
-            <div><div className="label">Compression</div><p className="num">Vocabulary {c.vocab_trimming.original_pieces.toLocaleString()} → {c.vocab_trimming.kept_pieces.toLocaleString()} pieces; int8 weights. Agrees with the full-precision model on {pct(c.served_vs_pytorch_agreement)} of test reviews.</p></div>
+            <div><div className="label">Trainable parameters</div><p className="num">{(tr.trainable_params || 0).toLocaleString()} — every weight was fine-tuned{c.vocab_trimming.before_training ? ` (down from ${(c.vocab_trimming.before_training.params_before / 1e6).toFixed(0)}M after trimming the vocabulary)` : ''}</p></div>
+            <div><div className="label">Compression</div><p className="num">Vocabulary {(c.vocab_trimming.before_training?.original_pieces ?? c.vocab_trimming.original_pieces).toLocaleString()} → {c.vocab_trimming.kept_pieces.toLocaleString()} pieces (test text never used); int8 weights. Agrees with the full-precision model on {pct(c.served_vs_pytorch_agreement)} of test reviews.</p></div>
             <div><div className="label">Full-precision test macro-F1</div><p className="num">{c.pytorch_fp32_test.macro_f1.toFixed(3)} (served: {t.macro_f1.toFixed(3)})</p></div>
             <div><div className="label">Low confidence (&lt; {Math.round(c.low_confidence.threshold * 100)}%)</div><p className="num">{pct(c.low_confidence.share)} of test reviews; accuracy {pct(c.low_confidence.accuracy_low)} vs {pct(c.low_confidence.accuracy_rest)} for the rest</p></div>
           </div>

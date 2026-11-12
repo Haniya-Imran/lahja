@@ -1,0 +1,1006 @@
+{
+  "created_at": "2026-11-12T13:16:11+00:00",
+  "calibration": {
+    "temperature": 1.45,
+    "val_ece_before": 0.0943,
+    "val_ece_after": 0.0271
+  },
+  "pytorch_fp32_test": {
+    "n": 3867,
+    "accuracy": 0.7101,
+    "macro_f1": 0.7102,
+    "weighted_f1": 0.7107,
+    "per_class": {
+      "negative": {
+        "precision": 0.631,
+        "recall": 0.7917,
+        "f1": 0.7023,
+        "support": 1162
+      },
+      "neutral": {
+        "precision": 0.7301,
+        "recall": 0.6794,
+        "f1": 0.7038,
+        "support": 1338
+      },
+      "positive": {
+        "precision": 0.7878,
+        "recall": 0.6708,
+        "f1": 0.7246,
+        "support": 1367
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "matrix": [
+        [
+          920,
+          147,
+          95
+        ],
+        [
+          277,
+          909,
+          152
+        ],
+        [
+          261,
+          189,
+          917
+        ]
+      ]
+    }
+  },
+  "vocab_trimming": {
+    "original_pieces": 52927,
+    "kept_pieces": 52927,
+    "test_prediction_agreement": 1.0,
+    "before_training": {
+      "original_pieces": 250002,
+      "kept_pieces": 52927,
+      "seen_in_train_val": 18343,
+      "params_before": 117653760,
+      "params_after": 41963520,
+      "rule": "train/val pieces + single characters + special tokens + top-30k unigram prior; test split not used"
+    }
+  },
+  "served_model_test": {
+    "n": 3867,
+    "accuracy": 0.7114,
+    "macro_f1": 0.7115,
+    "weighted_f1": 0.712,
+    "per_class": {
+      "negative": {
+        "precision": 0.6337,
+        "recall": 0.7892,
+        "f1": 0.703,
+        "support": 1162
+      },
+      "neutral": {
+        "precision": 0.7289,
+        "recall": 0.6854,
+        "f1": 0.7065,
+        "support": 1338
+      },
+      "positive": {
+        "precision": 0.7892,
+        "recall": 0.6708,
+        "f1": 0.7252,
+        "support": 1367
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "matrix": [
+        [
+          917,
+          154,
+          91
+        ],
+        [
+          267,
+          917,
+          154
+        ],
+        [
+          263,
+          187,
+          917
+        ]
+      ]
+    },
+    "ece": 0.0303
+  },
+  "served_vs_pytorch_agreement": 0.969,
+  "test_by_language": {
+    "english": {
+      "n": 622,
+      "accuracy": 0.8183,
+      "macro_f1": 0.766,
+      "weighted_f1": 0.815,
+      "per_class": {
+        "negative": {
+          "precision": 0.8091,
+          "recall": 0.8803,
+          "f1": 0.8432,
+          "support": 284
+        },
+        "neutral": {
+          "precision": 0.7,
+          "recall": 0.5385,
+          "f1": 0.6087,
+          "support": 78
+        },
+        "positive": {
+          "precision": 0.8577,
+          "recall": 0.8346,
+          "f1": 0.846,
+          "support": 260
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            250,
+            10,
+            24
+          ],
+          [
+            24,
+            42,
+            12
+          ],
+          [
+            35,
+            8,
+            217
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "mixed_roman_english": {
+      "n": 84,
+      "accuracy": 0.619,
+      "macro_f1": 0.6241,
+      "weighted_f1": 0.6138,
+      "per_class": {
+        "negative": {
+          "precision": 0.4762,
+          "recall": 0.9091,
+          "f1": 0.625,
+          "support": 22
+        },
+        "neutral": {
+          "precision": 0.7619,
+          "recall": 0.4324,
+          "f1": 0.5517,
+          "support": 37
+        },
+        "positive": {
+          "precision": 0.7619,
+          "recall": 0.64,
+          "f1": 0.6957,
+          "support": 25
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            20,
+            2,
+            0
+          ],
+          [
+            16,
+            16,
+            5
+          ],
+          [
+            6,
+            3,
+            16
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "mixed_urdu_english": {
+      "n": 25,
+      "accuracy": 0.88,
+      "macro_f1": 0.7799,
+      "weighted_f1": 0.8679,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 2
+        },
+        "neutral": {
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f1": 0.9231,
+          "support": 18
+        },
+        "positive": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            18,
+            0
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ]
+      },
+      "reliable": false,
+      "note": "Only 25 test examples — too few for a reliable estimate.",
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "roman_urdu": {
+      "n": 2103,
+      "accuracy": 0.6515,
+      "macro_f1": 0.6511,
+      "weighted_f1": 0.6535,
+      "per_class": {
+        "negative": {
+          "precision": 0.5355,
+          "recall": 0.7509,
+          "f1": 0.6252,
+          "support": 582
+        },
+        "neutral": {
+          "precision": 0.7133,
+          "recall": 0.6329,
+          "f1": 0.6707,
+          "support": 790
+        },
+        "positive": {
+          "precision": 0.7389,
+          "recall": 0.5923,
+          "f1": 0.6576,
+          "support": 731
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            437,
+            93,
+            52
+          ],
+          [
+            189,
+            500,
+            101
+          ],
+          [
+            190,
+            108,
+            433
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "uncertain": {
+      "n": 3,
+      "accuracy": 1.0,
+      "macro_f1": 0.3333,
+      "weighted_f1": 1.0,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "neutral": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "reliable": false,
+      "note": "Only 3 test examples — too few for a reliable estimate.",
+      "labels_present": [
+        "neutral"
+      ]
+    },
+    "urdu": {
+      "n": 1030,
+      "accuracy": 0.7718,
+      "macro_f1": 0.77,
+      "weighted_f1": 0.7716,
+      "per_class": {
+        "negative": {
+          "precision": 0.7491,
+          "recall": 0.7684,
+          "f1": 0.7586,
+          "support": 272
+        },
+        "neutral": {
+          "precision": 0.7478,
+          "recall": 0.8204,
+          "f1": 0.7824,
+          "support": 412
+        },
+        "positive": {
+          "precision": 0.8294,
+          "recall": 0.7168,
+          "f1": 0.769,
+          "support": 346
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            209,
+            48,
+            15
+          ],
+          [
+            38,
+            338,
+            36
+          ],
+          [
+            32,
+            66,
+            248
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    }
+  },
+  "throughput_reviews_per_sec_2cpu": 399.3,
+  "low_confidence": {
+    "threshold": 0.55,
+    "share": 0.189,
+    "accuracy_low": 0.4569,
+    "accuracy_rest": 0.7707
+  },
+  "error_analysis": {
+    "by_category": {
+      "negation": {
+        "n": 657,
+        "accuracy": 0.6667
+      },
+      "emoji": {
+        "n": 117,
+        "accuracy": 0.6667
+      },
+      "very_short": {
+        "n": 304,
+        "accuracy": 0.8059
+      },
+      "informal_spelling": {
+        "n": 406,
+        "accuracy": 0.6478
+      }
+    },
+    "top_confusions": [
+      {
+        "true": "neutral",
+        "predicted": "negative",
+        "count": 267
+      },
+      {
+        "true": "positive",
+        "predicted": "negative",
+        "count": 263
+      },
+      {
+        "true": "positive",
+        "predicted": "neutral",
+        "count": 187
+      },
+      {
+        "true": "negative",
+        "predicted": "neutral",
+        "count": 154
+      },
+      {
+        "true": "neutral",
+        "predicted": "positive",
+        "count": 154
+      },
+      {
+        "true": "negative",
+        "predicted": "positive",
+        "count": 91
+      }
+    ],
+    "examples": [
+      {
+        "text": "Mainay kaghaz per bhi bana kar dekhin aankhain uski ",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "negative",
+        "confidence": 0.668
+      },
+      {
+        "text": "Aik interview mein inho ne kaha tha, mujhe lagta hai ke main aik bulbulay mein qaid hon, jis se nikalna chahti hon",
+        "language": "roman_urdu",
+        "true": "negative",
+        "predicted": "neutral",
+        "confidence": 0.496
+      },
+      {
+        "text": "Ya shaheed hy ar ap hans rahy toba",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.441
+      },
+      {
+        "text": "mjhe ye product chahiye thi may local market mein gya toh mjhe ny mili lekin daraz par availiable thi mere acne khatam hogyi hai iss se nice productt love u daraz",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "negative",
+        "confidence": 0.569
+      },
+      {
+        "text": "Isi tarah ke chand chote motey roles karne ke bad 1950 mein 2 films The Asphalt Jungle and All About Eve mein qadrey numayan role mile aur in films ko oasat darje ki kamiyabi bhi hasil hui",
+        "language": "roman_urdu",
+        "true": "neutral",
+        "predicted": "positive",
+        "confidence": 0.477
+      },
+      {
+        "text": "Peshab K Douran Dard Jalan Rukawat Or Qatron K Aney Se Mutalik Doctor Se FREE Mashware K Lye Abhi Call Kren",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "negative",
+        "confidence": 0.863
+      },
+      {
+        "text": "میں نے محسوس کیا ، ذائقہ بہت سمجھوتہ کیا ہے",
+        "language": "urdu",
+        "true": "neutral",
+        "predicted": "positive",
+        "confidence": 0.635
+      },
+      {
+        "text": "Jahan in ki Saas Indra Gandhi prime minister ban chuki thin.",
+        "language": "roman_urdu",
+        "true": "neutral",
+        "predicted": "negative",
+        "confidence": 0.678
+      },
+      {
+        "text": "Bra dil ha multan walo ka",
+        "language": "roman_urdu",
+        "true": "neutral",
+        "predicted": "negative",
+        "confidence": 0.485
+      },
+      {
+        "text": "Zeba Begum ne guzishta roze apni rehaiyshgaah par Karachi ki film and Tv journalist association aur Lahore ki cultural journalist foundation ke wafood se mulaqat ke dauran bataya ke apni zimmedari ko imandari ke sath nib",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.456
+      },
+      {
+        "text": "یہ آؤٹ کلاس خدمات ہیں جو ہمیں فراہم کی جاتی ہیں",
+        "language": "urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.678
+      },
+      {
+        "text": "Itlaaq Aaj Raat 12 Bajay Se Hoga ",
+        "language": "roman_urdu",
+        "true": "neutral",
+        "predicted": "negative",
+        "confidence": 0.616
+      }
+    ],
+    "notes": [
+      "Sarcasm cannot be detected automatically in this data; it is a known weak spot for any sentiment model.",
+      "Many errors are between neutral and a polar class, where human labels also disagree most."
+    ]
+  },
+  "baseline": {
+    "model": "TF-IDF (char 2-5 + word 1-2) + logistic regression",
+    "test": {
+      "accuracy": 0.729,
+      "macro_f1": 0.7285,
+      "weighted_f1": 0.7292
+    },
+    "test_by_language": {
+      "english": {
+        "n": 622,
+        "macro_f1": 0.7113
+      },
+      "mixed_roman_english": {
+        "n": 84,
+        "macro_f1": 0.6669
+      },
+      "mixed_urdu_english": {
+        "n": 25,
+        "macro_f1": 0.6952
+      },
+      "roman_urdu": {
+        "n": 2103,
+        "macro_f1": 0.6978
+      },
+      "uncertain": {
+        "n": 3,
+        "macro_f1": 0.2667
+      },
+      "urdu": {
+        "n": 1030,
+        "macro_f1": 0.763
+      }
+    }
+  },
+  "model_comparison": {
+    "protocol": "1 epoch on the same random 8,000 training reviews (seed 42), frozen word embeddings, batch 32, max length 128; scored on the full validation split (3,867 reviews). Test split not used.",
+    "candidates": [
+      {
+        "key": "minilm",
+        "name": "Multilingual MiniLM-L12-H384",
+        "hf_id": "microsoft/Multilingual-MiniLM-L12-H384",
+        "license": "MIT",
+        "trainable_params": 21640707,
+        "val_macro_f1": 0.6163,
+        "train_minutes_8k": 3.5,
+        "tokenizer_by_language": {
+          "english": {
+            "n": 631,
+            "tokens_per_word": 1.39,
+            "unknown_tokens": 0
+          },
+          "mixed_roman_english": {
+            "n": 103,
+            "tokens_per_word": 1.44,
+            "unknown_tokens": 0
+          },
+          "roman_urdu": {
+            "n": 2075,
+            "tokens_per_word": 1.56,
+            "unknown_tokens": 0
+          },
+          "urdu": {
+            "n": 1041,
+            "tokens_per_word": 1.3,
+            "unknown_tokens": 0
+          }
+        }
+      },
+      {
+        "key": "distilmbert",
+        "name": "DistilBERT multilingual (cased)",
+        "hf_id": "distilbert-base-multilingual-cased",
+        "license": "Apache-2.0",
+        "trainable_params": 43514883,
+        "val_macro_f1": 0.623,
+        "train_minutes_8k": 5.6,
+        "tokenizer_by_language": {
+          "english": {
+            "n": 631,
+            "tokens_per_word": 1.4,
+            "unknown_tokens": 10
+          },
+          "mixed_roman_english": {
+            "n": 103,
+            "tokens_per_word": 1.53,
+            "unknown_tokens": 6
+          },
+          "roman_urdu": {
+            "n": 2075,
+            "tokens_per_word": 1.72,
+            "unknown_tokens": 180
+          },
+          "urdu": {
+            "n": 1041,
+            "tokens_per_word": 1.78,
+            "unknown_tokens": 20
+          }
+        }
+      }
+    ],
+    "tie_break": "DistilBERT multilingual (cased) scored 0.0067 higher on validation macro-F1, a small gap for a single 1-epoch run on 8,000 reviews. Multilingual MiniLM-L12-H384 was chosen because it is smaller and faster, which matters for CPU serving inside a 250 MB serverless function.",
+    "chosen": "minilm",
+    "reason": "DistilBERT multilingual (cased) scored 0.0067 higher on validation macro-F1, a small gap for a single 1-epoch run on 8,000 reviews. Multilingual MiniLM-L12-H384 was chosen because it is smaller and faster, which matters for CPU serving inside a 250 MB serverless function; trained faster on CPU (3.5 vs 5.6 min); produced fewer unknown tokens on validation text (0 vs 216)."
+  },
+  "data": {
+    "steps": [
+      {
+        "step": "Loaded",
+        "rows": 43824
+      },
+      {
+        "step": "Dropped rows with an unknown label",
+        "rows": 1
+      },
+      {
+        "step": "Dropped empty / too-short text (<2 letters)",
+        "rows": 222
+      },
+      {
+        "step": "Dropped texts whose duplicates carry different labels",
+        "rows": 563,
+        "groups": 198
+      },
+      {
+        "step": "Removed duplicates (same text after normalisation)",
+        "rows": 4358
+      }
+    ],
+    "loaded_by_source": {
+      "roman_urdu_uci": 20229,
+      "urdu_products": 13687,
+      "daraz_reviews": 3393,
+      "english_finegrained": 2515,
+      "urdu_sentiment_corpus": 1000,
+      "english_uci_amazon": 1000,
+      "english_uci_yelp": 1000,
+      "english_uci_imdb": 1000
+    },
+    "final_rows": 38680,
+    "by_split": {
+      "train": 30946,
+      "test": 3867,
+      "val": 3867
+    },
+    "label_by_split": {
+      "train": {
+        "positive": 10939,
+        "neutral": 10710,
+        "negative": 9297
+      },
+      "val": {
+        "positive": 1367,
+        "neutral": 1338,
+        "negative": 1162
+      },
+      "test": {
+        "positive": 1367,
+        "neutral": 1338,
+        "negative": 1162
+      }
+    },
+    "by_source_label": {
+      "daraz_reviews": {
+        "positive": 1972,
+        "negative": 848,
+        "neutral": 499
+      },
+      "english_finegrained": {
+        "negative": 1318,
+        "positive": 922,
+        "neutral": 271
+      },
+      "english_uci_amazon": {
+        "negative": 489,
+        "positive": 488
+      },
+      "english_uci_imdb": {
+        "negative": 497,
+        "positive": 496
+      },
+      "english_uci_yelp": {
+        "positive": 499,
+        "negative": 495
+      },
+      "roman_urdu_uci": {
+        "neutral": 8311,
+        "positive": 5787,
+        "negative": 5230
+      },
+      "urdu_products": {
+        "neutral": 4285,
+        "positive": 3035,
+        "negative": 2250
+      },
+      "urdu_sentiment_corpus": {
+        "negative": 494,
+        "positive": 474,
+        "neutral": 20
+      }
+    },
+    "detected_language": {
+      "roman_urdu": 21057,
+      "urdu": 10349,
+      "english": 6233,
+      "mixed_roman_english": 809,
+      "mixed_urdu_english": 209,
+      "uncertain": 23
+    },
+    "language_by_source": {
+      "daraz_reviews": {
+        "roman_urdu": 3134,
+        "mixed_roman_english": 151,
+        "english": 32,
+        "uncertain": 2
+      },
+      "english_finegrained": {
+        "english": 2507,
+        "roman_urdu": 3,
+        "mixed_roman_english": 1
+      },
+      "english_uci_amazon": {
+        "english": 976,
+        "roman_urdu": 1
+      },
+      "english_uci_imdb": {
+        "english": 991,
+        "uncertain": 1,
+        "roman_urdu": 1
+      },
+      "english_uci_yelp": {
+        "english": 992,
+        "mixed_roman_english": 1,
+        "roman_urdu": 1
+      },
+      "roman_urdu_uci": {
+        "roman_urdu": 17916,
+        "english": 735,
+        "mixed_roman_english": 656,
+        "uncertain": 20,
+        "mixed_urdu_english": 1
+      },
+      "urdu_products": {
+        "urdu": 9362,
+        "mixed_urdu_english": 207,
+        "roman_urdu": 1
+      },
+      "urdu_sentiment_corpus": {
+        "urdu": 987,
+        "mixed_urdu_english": 1
+      }
+    },
+    "test_language_label": {
+      "english": {
+        "negative": 284,
+        "positive": 260,
+        "neutral": 78
+      },
+      "mixed_roman_english": {
+        "neutral": 37,
+        "positive": 25,
+        "negative": 22
+      },
+      "mixed_urdu_english": {
+        "neutral": 18,
+        "positive": 5,
+        "negative": 2
+      },
+      "roman_urdu": {
+        "neutral": 790,
+        "positive": 731,
+        "negative": 582
+      },
+      "uncertain": {
+        "neutral": 3
+      },
+      "urdu": {
+        "neutral": 412,
+        "positive": 346,
+        "negative": 272
+      }
+    },
+    "words_per_text": {
+      "count": 38680.0,
+      "mean": 13.9,
+      "std": 13.2,
+      "min": 1.0,
+      "25%": 6.0,
+      "50%": 10.0,
+      "75%": 17.0,
+      "max": 296.0
+    },
+    "contamination_check": {
+      "shared_keys_train_test": 0,
+      "shared_keys_train_val": 0
+    }
+  },
+  "sources": [
+    {
+      "key": "roman_urdu_uci",
+      "name": "Roman Urdu Data Set (Sharf, UCI)",
+      "language": "roman_urdu",
+      "homepage": "https://archive.ics.uci.edu/dataset/458/roman+urdu+data+set",
+      "license": "CC BY 4.0 (UCI listing); GitHub mirror distributed under GPL-3.0",
+      "citation": "Sharf, Z. (2018). Roman Urdu Data Set. UCI Machine Learning Repository. https://doi.org/10.24432/C58325",
+      "labels": "Positive / Negative / Neutral (manually tagged)",
+      "notes": [
+        "~20k sentences from e-commerce reviews, Facebook and Twitter comments.",
+        "Known to contain some noisy or inconsistent labels; one 'Neative' typo."
+      ]
+    },
+    {
+      "key": "daraz_reviews",
+      "name": "Daraz Roman Urdu product reviews",
+      "language": "roman_urdu_mixed",
+      "homepage": "https://www.kaggle.com/datasets/naveedhn/daraz-roman-urdu-reviews",
+      "license": "Mirror repository under MIT; original Kaggle upload by naveedhn (license not stated on the mirror)",
+      "citation": "naveedhn. Daraz Roman Urdu Reviews. Kaggle. Mirrored in github.com/mirfan899/Urdu.",
+      "labels": "Positive / Negative / Neutral plus a spam flag",
+      "notes": [
+        "Real Pakistani e-commerce reviews; Roman Urdu, English and mixtures.",
+        "Rows flagged as spam are removed."
+      ]
+    },
+    {
+      "key": "urdu_products",
+      "name": "Urdu products & services sentiment",
+      "language": "urdu",
+      "homepage": "https://github.com/mirfan899/Urdu",
+      "license": "MIT (repository license)",
+      "citation": "Irfan, M. (2019). Urdu datasets. github.com/mirfan899/Urdu",
+      "labels": "pos / neg / neu",
+      "notes": [
+        "Urdu-script sentences about products and services from social media and the web."
+      ]
+    },
+    {
+      "key": "urdu_sentiment_corpus",
+      "name": "Urdu Sentiment Corpus v1.0",
+      "language": "urdu",
+      "homepage": "https://github.com/MuhammadYaseenKhan/Urdu-Sentiment-Corpus",
+      "license": "Not stated by the authors (research corpus; cite the paper)",
+      "citation": "Khan, M. Y. & Nizami, M. S. (2020). Urdu Sentiment Corpus (v1.0). IEEE ICISCT 2020.",
+      "labels": "P / N / O (O = objective, mapped to neutral)",
+      "notes": [
+        "1,000 Urdu tweets, mostly political; only 20 objective tweets."
+      ]
+    },
+    {
+      "key": "english_finegrained",
+      "name": "Fine-grained sentence sentiment (Täckström & McDonald)",
+      "language": "english",
+      "homepage": "https://github.com/oscartackstrom/sentence-sentiment-data",
+      "license": "Free for any friendly purpose; cite the ECIR 2011 paper",
+      "citation": "Täckström, O. & McDonald, R. (2011). Discovering fine-grained sentiment with latent variable structured prediction models. ECIR 2011.",
+      "labels": "pos / neg / neu (mix and nr dropped)",
+      "notes": [
+        "Sentences from 294 product reviews (books, DVDs, electronics, music, video games)."
+      ]
+    },
+    {
+      "key": "english_uci_amazon",
+      "name": "Sentiment Labelled Sentences — Amazon (Kotzias et al., UCI)",
+      "language": "english",
+      "homepage": "https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences",
+      "license": "CC BY 4.0",
+      "citation": "Kotzias, D., Denil, M., de Freitas, N. & Smyth, P. (2015). From group to individual labels using deep features. KDD 2015.",
+      "labels": "1 positive / 0 negative (binary)",
+      "notes": [
+        "1,000 review sentences; binary only, so it adds no neutral examples."
+      ]
+    },
+    {
+      "key": "english_uci_yelp",
+      "name": "Sentiment Labelled Sentences — Yelp (Kotzias et al., UCI)",
+      "language": "english",
+      "homepage": "https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences",
+      "license": "CC BY 4.0",
+      "citation": "Kotzias, D., Denil, M., de Freitas, N. & Smyth, P. (2015). From group to individual labels using deep features. KDD 2015.",
+      "labels": "1 positive / 0 negative (binary)",
+      "notes": [
+        "1,000 review sentences; binary only, so it adds no neutral examples."
+      ]
+    },
+    {
+      "key": "english_uci_imdb",
+      "name": "Sentiment Labelled Sentences — Imdb (Kotzias et al., UCI)",
+      "language": "english",
+      "homepage": "https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences",
+      "license": "CC BY 4.0",
+      "citation": "Kotzias, D., Denil, M., de Freitas, N. & Smyth, P. (2015). From group to individual labels using deep features. KDD 2015.",
+      "labels": "1 positive / 0 negative (binary)",
+      "notes": [
+        "1,000 review sentences; binary only, so it adds no neutral examples."
+      ]
+    }
+  ]
+}
