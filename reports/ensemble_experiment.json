@@ -1,0 +1,55 @@
+{
+  "weights": {
+    "global_w_transformer": 0.35,
+    "per_script_w_transformer": {
+      "urdu_script": 0.3,
+      "latin_script": 0.35
+    }
+  },
+  "results": {
+    "transformer": {
+      "val_macro_f1": 0.7089,
+      "test_macro_f1": 0.7115,
+      "test_accuracy": 0.7114,
+      "test_by_language": {
+        "english": 0.766,
+        "mixed_roman_english": 0.6241,
+        "roman_urdu": 0.6511,
+        "urdu": 0.77
+      }
+    },
+    "baseline": {
+      "val_macro_f1": 0.7116,
+      "test_macro_f1": 0.7285,
+      "test_accuracy": 0.729,
+      "test_by_language": {
+        "english": 0.7113,
+        "mixed_roman_english": 0.6669,
+        "roman_urdu": 0.6978,
+        "urdu": 0.763
+      }
+    },
+    "blend_global": {
+      "val_macro_f1": 0.7336,
+      "test_macro_f1": 0.7429,
+      "test_accuracy": 0.743,
+      "test_by_language": {
+        "english": 0.7649,
+        "mixed_roman_english": 0.7287,
+        "roman_urdu": 0.7054,
+        "urdu": 0.7715
+      }
+    },
+    "blend_per_script": {
+      "val_macro_f1": 0.7339,
+      "test_macro_f1": 0.7421,
+      "test_accuracy": 0.7422,
+      "test_by_language": {
+        "english": 0.7649,
+        "mixed_roman_english": 0.7287,
+        "roman_urdu": 0.7054,
+        "urdu": 0.7685
+      }
+    }
+  }
+}
