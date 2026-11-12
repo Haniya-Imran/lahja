@@ -1,0 +1,15 @@
+{
+  "display_name": "LingoAI sentiment (fine-tuned Multilingual MiniLM + TF-IDF blend)",
+  "weight_transformer": 0.35,
+  "weight_tfidf": 0.65,
+  "temperature": 0.8,
+  "low_confidence": 0.55,
+  "chosen_on": "validation split (grid 0.00-1.00 step 0.05, macro-F1)",
+  "val_macro_f1": {
+    "transformer": 0.7089,
+    "tfidf": 0.7116,
+    "blend": 0.7336
+  },
+  "tfidf_model": "char 2-5 (char_wb, top 200k) + word 1-2 TF-IDF, logistic regression C=1, class-balanced",
+  "numpy_vs_sklearn_max_prob_diff": 1.1102230246251565e-15
+}

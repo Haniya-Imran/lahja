@@ -21,6 +21,7 @@ Review Input Studio → Language & Script Intelligence → Text Normalisation �
 | Model selection | `nlp/training/compare.py` | Multilingual MiniLM vs DistilBERT-multilingual on the same subset |
 | Fine-tuning | `nlp/training/finetune.py` | Full fine-tune of `microsoft/Multilingual-MiniLM-L12-H384` on CPU, early stopping on validation macro-F1 |
 | Export | `nlp/training/export.py` | Temperature calibration, vocabulary trimming, ONNX + int8 quantisation, test evaluation of the exact served file, error analysis, model card |
+| Ensemble | `nlp/training/export_ensemble.py`, `nlp/inference/ensemble.py` | Served model = 35% Transformer + 65% TF-IDF character model (weight and calibration chosen on validation) |
 | Inference | `nlp/inference/engine.py` | onnxruntime + tokenizers (no PyTorch in production), sliding windows for long reviews |
 | Explainability | `nlp/explainability/occlusion.py` | Leave-one-word-out influence per word |
 | Analytics | `nlp/analytics/text_insights.py` | Distinctive words/phrases per sentiment (weighted log-odds), function words learned from data |
@@ -52,6 +53,7 @@ python -m nlp.training.baseline
 python -m nlp.training.finetune --model <path-or-hub-id-of-Multilingual-MiniLM> \
        --tokenizer xlm-roberta-base --epochs 4 --lr 8e-5 --out models/checkpoints/final
 python -m nlp.training.export --ckpt models/checkpoints/final --out models/sentiment
+python -m nlp.training.export_ensemble   # TF-IDF model, blend weight on validation, final test metrics
 
 # 3. API
 cd backend && uvicorn app.main:app --reload --port 8000

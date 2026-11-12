@@ -138,3 +138,14 @@ def test_text_insights_distinctive_terms():
     neg = [w["term"] for w in out["words"]["negative"]]
     assert "zabardast" in pos and "bekaar" in neg and "hai" not in pos
     assert out["length"]["median"] == 4
+
+
+# ---------- NumPy TF-IDF must match scikit-learn ----------
+@pytest.mark.parametrize("text", ["Bohat   acha product hai!!", "یہ فون بہت اچھا ہے", "a", "Great value, 10/10 would buy"])
+def test_ngrams_match_sklearn(text):
+    sk = pytest.importorskip("sklearn.feature_extraction.text")
+    from nlp.inference.tfidf_lr import char_wb_ngrams, word_ngrams
+    c = sk.TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5)).build_analyzer()
+    w = sk.TfidfVectorizer(analyzer="word", ngram_range=(1, 2), token_pattern=r"(?u)\b\w+\b").build_analyzer()
+    assert char_wb_ngrams(text) == c(text)
+    assert word_ngrams(text) == w(text)

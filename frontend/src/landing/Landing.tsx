@@ -85,7 +85,7 @@ export default function Landing() {
           {[
             ['Detect', 'Script share and a character n-gram model tell Urdu, Roman Urdu, English and code-switched text apart.'],
             ['Normalise', 'Unicode and Urdu letter forms unified, diacritics, links and stretched letters (“acchaaaa”) cleaned.'],
-            ['Understand', 'A multilingual MiniLM Transformer, fine-tuned on about 31,000 labelled public reviews, reads the review.'],
+            ['Understand', 'A multilingual MiniLM Transformer, fine-tuned on about 31,000 labelled public reviews, reads the meaning; a character-level model catches the many spellings of Roman Urdu.'],
             ['Calibrate', 'Probabilities are temperature-calibrated so “80% sure” means something; unsure results are flagged.'],
             ['Explain', 'Each word is removed in turn and the review re-scored to show which words moved the decision.'],
             ['Report', 'Session analytics, distinctive words per sentiment, CSV export and a printable report.'],

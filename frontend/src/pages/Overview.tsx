@@ -8,7 +8,7 @@ const STAGES = [
   ['Review input', 'Type one review or upload a CSV'],
   ['Language & script', 'Urdu, Roman Urdu, English or mixed'],
   ['Normalisation', 'Unicode, Urdu letters, URLs, elongation'],
-  ['Transformer', 'Fine-tuned multilingual MiniLM'],
+  ['Transformer', 'Fine-tuned MiniLM + character model'],
   ['Sentiment', 'Calibrated probabilities + explanation'],
   ['Analytics', 'Trends, languages, distinctive words'],
   ['Reports', 'CSV and printable report'],

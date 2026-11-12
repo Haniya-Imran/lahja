@@ -8,6 +8,7 @@ import time
 
 from nlp.analytics.text_insights import TextInsights
 from nlp.inference.engine import SentimentEngine
+from nlp.inference.ensemble import EnsembleEngine
 from nlp.language_detection.detect import LanguageDetector
 
 from ..config import settings
@@ -21,7 +22,11 @@ _state: dict = {}
 def _load():
     t = time.time()
     try:
-        engine = SentimentEngine(settings.model_dir, threads=settings.onnx_threads)
+        tfidf_dir = settings.model_dir.parent / "tfidf"
+        if (tfidf_dir / "ensemble.json").exists():
+            engine = EnsembleEngine(settings.model_dir, tfidf_dir, threads=settings.onnx_threads)
+        else:
+            engine = SentimentEngine(settings.model_dir, threads=settings.onnx_threads)
     except FileNotFoundError as exc:
         raise ApiError(503, "model_missing", "The fine-tuned model files are not available on this server.") from exc
     det = LanguageDetector(json.loads(settings.langid_path.read_text(encoding="utf-8")))

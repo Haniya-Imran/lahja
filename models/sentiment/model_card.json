@@ -70,26 +70,26 @@
   },
   "served_model_test": {
     "n": 3867,
-    "accuracy": 0.7114,
-    "macro_f1": 0.7115,
-    "weighted_f1": 0.712,
+    "accuracy": 0.743,
+    "macro_f1": 0.7429,
+    "weighted_f1": 0.7434,
     "per_class": {
       "negative": {
-        "precision": 0.6337,
-        "recall": 0.7892,
-        "f1": 0.703,
+        "precision": 0.6924,
+        "recall": 0.7788,
+        "f1": 0.7331,
         "support": 1162
       },
       "neutral": {
-        "precision": 0.7289,
-        "recall": 0.6854,
-        "f1": 0.7065,
+        "precision": 0.7367,
+        "recall": 0.7339,
+        "f1": 0.7353,
         "support": 1338
       },
       "positive": {
-        "precision": 0.7892,
-        "recall": 0.6708,
-        "f1": 0.7252,
+        "precision": 0.8036,
+        "recall": 0.7213,
+        "f1": 0.7602,
         "support": 1367
       }
     },
@@ -101,48 +101,48 @@
       ],
       "matrix": [
         [
-          917,
-          154,
-          91
+          905,
+          160,
+          97
         ],
         [
-          267,
-          917,
-          154
+          212,
+          982,
+          144
         ],
         [
-          263,
-          187,
-          917
+          190,
+          191,
+          986
         ]
       ]
     },
-    "ece": 0.0303
+    "ece": 0.0159
   },
   "served_vs_pytorch_agreement": 0.969,
   "test_by_language": {
     "english": {
       "n": 622,
-      "accuracy": 0.8183,
-      "macro_f1": 0.766,
-      "weighted_f1": 0.815,
+      "accuracy": 0.8135,
+      "macro_f1": 0.7649,
+      "weighted_f1": 0.8096,
       "per_class": {
         "negative": {
-          "precision": 0.8091,
-          "recall": 0.8803,
-          "f1": 0.8432,
+          "precision": 0.7901,
+          "recall": 0.9014,
+          "f1": 0.8421,
           "support": 284
         },
         "neutral": {
-          "precision": 0.7,
+          "precision": 0.7368,
           "recall": 0.5385,
-          "f1": 0.6087,
+          "f1": 0.6222,
           "support": 78
         },
         "positive": {
-          "precision": 0.8577,
-          "recall": 0.8346,
-          "f1": 0.846,
+          "precision": 0.8631,
+          "recall": 0.8,
+          "f1": 0.8303,
           "support": 260
         }
       },
@@ -154,19 +154,19 @@
         ],
         "matrix": [
           [
-            250,
-            10,
-            24
-          ],
-          [
-            24,
-            42,
-            12
-          ],
-          [
-            35,
+            256,
             8,
-            217
+            20
+          ],
+          [
+            23,
+            42,
+            13
+          ],
+          [
+            45,
+            7,
+            208
           ]
         ]
       },
@@ -179,26 +179,26 @@
     },
     "mixed_roman_english": {
       "n": 84,
-      "accuracy": 0.619,
-      "macro_f1": 0.6241,
-      "weighted_f1": 0.6138,
+      "accuracy": 0.7262,
+      "macro_f1": 0.7287,
+      "weighted_f1": 0.7256,
       "per_class": {
         "negative": {
-          "precision": 0.4762,
+          "precision": 0.5714,
           "recall": 0.9091,
-          "f1": 0.625,
+          "f1": 0.7018,
           "support": 22
         },
         "neutral": {
-          "precision": 0.7619,
-          "recall": 0.4324,
-          "f1": 0.5517,
+          "precision": 0.913,
+          "recall": 0.5676,
+          "f1": 0.7,
           "support": 37
         },
         "positive": {
-          "precision": 0.7619,
-          "recall": 0.64,
-          "f1": 0.6957,
+          "precision": 0.7692,
+          "recall": 0.8,
+          "f1": 0.7843,
           "support": 25
         }
       },
@@ -211,18 +211,18 @@
         "matrix": [
           [
             20,
-            2,
-            0
+            1,
+            1
           ],
           [
-            16,
-            16,
+            11,
+            21,
             5
           ],
           [
-            6,
-            3,
-            16
+            4,
+            1,
+            20
           ]
         ]
       },
@@ -235,26 +235,26 @@
     },
     "mixed_urdu_english": {
       "n": 25,
-      "accuracy": 0.88,
-      "macro_f1": 0.7799,
-      "weighted_f1": 0.8679,
+      "accuracy": 0.8,
+      "macro_f1": 0.5205,
+      "weighted_f1": 0.7775,
       "per_class": {
         "negative": {
-          "precision": 1.0,
-          "recall": 0.5,
-          "f1": 0.6667,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
           "support": 2
         },
         "neutral": {
-          "precision": 0.8571,
-          "recall": 1.0,
-          "f1": 0.9231,
+          "precision": 0.85,
+          "recall": 0.9444,
+          "f1": 0.8947,
           "support": 18
         },
         "positive": {
-          "precision": 1.0,
+          "precision": 0.75,
           "recall": 0.6,
-          "f1": 0.75,
+          "f1": 0.6667,
           "support": 5
         }
       },
@@ -266,13 +266,13 @@
         ],
         "matrix": [
           [
+            0,
             1,
-            1,
-            0
+            1
           ],
           [
-            0,
-            18,
+            1,
+            17,
             0
           ],
           [
@@ -292,26 +292,26 @@
     },
     "roman_urdu": {
       "n": 2103,
-      "accuracy": 0.6515,
-      "macro_f1": 0.6511,
-      "weighted_f1": 0.6535,
+      "accuracy": 0.7066,
+      "macro_f1": 0.7054,
+      "weighted_f1": 0.7078,
       "per_class": {
         "negative": {
-          "precision": 0.5355,
-          "recall": 0.7509,
-          "f1": 0.6252,
+          "precision": 0.6256,
+          "recall": 0.732,
+          "f1": 0.6746,
           "support": 582
         },
         "neutral": {
-          "precision": 0.7133,
-          "recall": 0.6329,
-          "f1": 0.6707,
+          "precision": 0.7178,
+          "recall": 0.7114,
+          "f1": 0.7146,
           "support": 790
         },
         "positive": {
-          "precision": 0.7389,
-          "recall": 0.5923,
-          "f1": 0.6576,
+          "precision": 0.7793,
+          "recall": 0.6813,
+          "f1": 0.727,
           "support": 731
         }
       },
@@ -323,19 +323,19 @@
         ],
         "matrix": [
           [
-            437,
-            93,
-            52
+            426,
+            102,
+            54
           ],
           [
-            189,
-            500,
-            101
+            141,
+            562,
+            87
           ],
           [
-            190,
-            108,
-            433
+            114,
+            119,
+            498
           ]
         ]
       },
@@ -403,26 +403,26 @@
     },
     "urdu": {
       "n": 1030,
-      "accuracy": 0.7718,
-      "macro_f1": 0.77,
-      "weighted_f1": 0.7716,
+      "accuracy": 0.7738,
+      "macro_f1": 0.7715,
+      "weighted_f1": 0.7736,
       "per_class": {
         "negative": {
-          "precision": 0.7491,
-          "recall": 0.7684,
-          "f1": 0.7586,
+          "precision": 0.7632,
+          "recall": 0.7463,
+          "f1": 0.7546,
           "support": 272
         },
         "neutral": {
-          "precision": 0.7478,
-          "recall": 0.8204,
-          "f1": 0.7824,
+          "precision": 0.7539,
+          "recall": 0.818,
+          "f1": 0.7846,
           "support": 412
         },
         "positive": {
-          "precision": 0.8294,
-          "recall": 0.7168,
-          "f1": 0.769,
+          "precision": 0.8107,
+          "recall": 0.7428,
+          "f1": 0.7753,
           "support": 346
         }
       },
@@ -434,19 +434,19 @@
         ],
         "matrix": [
           [
-            209,
+            203,
             48,
-            15
+            21
           ],
           [
-            38,
-            338,
-            36
+            36,
+            337,
+            39
           ],
           [
-            32,
-            66,
-            248
+            27,
+            62,
+            257
           ]
         ]
       },
@@ -458,148 +458,148 @@
       ]
     }
   },
-  "throughput_reviews_per_sec_2cpu": 399.3,
+  "throughput_reviews_per_sec_2cpu": 371.4,
   "low_confidence": {
     "threshold": 0.55,
-    "share": 0.189,
-    "accuracy_low": 0.4569,
-    "accuracy_rest": 0.7707
+    "share": 0.1999,
+    "accuracy_low": 0.4864,
+    "accuracy_rest": 0.807
   },
   "error_analysis": {
     "by_category": {
       "negation": {
         "n": 657,
-        "accuracy": 0.6667
+        "accuracy": 0.7093
       },
       "emoji": {
         "n": 117,
-        "accuracy": 0.6667
+        "accuracy": 0.7265
       },
       "very_short": {
         "n": 304,
-        "accuracy": 0.8059
+        "accuracy": 0.8026
       },
       "informal_spelling": {
         "n": 406,
-        "accuracy": 0.6478
+        "accuracy": 0.7414
       }
     },
     "top_confusions": [
       {
         "true": "neutral",
         "predicted": "negative",
-        "count": 267
+        "count": 212
+      },
+      {
+        "true": "positive",
+        "predicted": "neutral",
+        "count": 191
       },
       {
         "true": "positive",
         "predicted": "negative",
-        "count": 263
-      },
-      {
-        "true": "positive",
-        "predicted": "neutral",
-        "count": 187
+        "count": 190
       },
       {
         "true": "negative",
         "predicted": "neutral",
-        "count": 154
+        "count": 160
       },
       {
         "true": "neutral",
         "predicted": "positive",
-        "count": 154
+        "count": 144
       },
       {
         "true": "negative",
         "predicted": "positive",
-        "count": 91
+        "count": 97
       }
     ],
     "examples": [
       {
-        "text": "Mainay kaghaz per bhi bana kar dekhin aankhain uski ",
-        "language": "roman_urdu",
-        "true": "positive",
-        "predicted": "negative",
-        "confidence": 0.668
-      },
-      {
-        "text": "Aik interview mein inho ne kaha tha, mujhe lagta hai ke main aik bulbulay mein qaid hon, jis se nikalna chahti hon",
-        "language": "roman_urdu",
-        "true": "negative",
-        "predicted": "neutral",
-        "confidence": 0.496
-      },
-      {
-        "text": "Ya shaheed hy ar ap hans rahy toba",
-        "language": "roman_urdu",
-        "true": "positive",
-        "predicted": "neutral",
-        "confidence": 0.441
-      },
-      {
-        "text": "mjhe ye product chahiye thi may local market mein gya toh mjhe ny mili lekin daraz par availiable thi mere acne khatam hogyi hai iss se nice productt love u daraz",
-        "language": "roman_urdu",
-        "true": "positive",
-        "predicted": "negative",
-        "confidence": 0.569
-      },
-      {
-        "text": "Isi tarah ke chand chote motey roles karne ke bad 1950 mein 2 films The Asphalt Jungle and All About Eve mein qadrey numayan role mile aur in films ko oasat darje ki kamiyabi bhi hasil hui",
-        "language": "roman_urdu",
-        "true": "neutral",
-        "predicted": "positive",
-        "confidence": 0.477
-      },
-      {
-        "text": "Peshab K Douran Dard Jalan Rukawat Or Qatron K Aney Se Mutalik Doctor Se FREE Mashware K Lye Abhi Call Kren",
-        "language": "roman_urdu",
-        "true": "positive",
-        "predicted": "negative",
-        "confidence": 0.863
-      },
-      {
-        "text": "میں نے محسوس کیا ، ذائقہ بہت سمجھوتہ کیا ہے",
+        "text": "میں نے ٹریلر دیکھا ہے اور میں خوش قسمتی سے جانتا ہوں کہ فلم میں کیا ہے لہذا مجھے ٹکٹوں کی ضرورت نہیں ہے",
         "language": "urdu",
         "true": "neutral",
-        "predicted": "positive",
-        "confidence": 0.635
-      },
-      {
-        "text": "Jahan in ki Saas Indra Gandhi prime minister ban chuki thin.",
-        "language": "roman_urdu",
-        "true": "neutral",
         "predicted": "negative",
-        "confidence": 0.678
+        "confidence": 0.533
       },
       {
-        "text": "Bra dil ha multan walo ka",
-        "language": "roman_urdu",
-        "true": "neutral",
-        "predicted": "negative",
-        "confidence": 0.485
-      },
-      {
-        "text": "Zeba Begum ne guzishta roze apni rehaiyshgaah par Karachi ki film and Tv journalist association aur Lahore ki cultural journalist foundation ke wafood se mulaqat ke dauran bataya ke apni zimmedari ko imandari ke sath nib",
+        "text": "Target Killing Bhatta Khorri Degar Jaraim Mn Mulavis Hunay Ka Illzam Ky Rehnuma Usman Moazzam 90 Roz K Lia Rangers K Hawaly ",
         "language": "roman_urdu",
         "true": "positive",
-        "predicted": "neutral",
-        "confidence": 0.456
+        "predicted": "negative",
+        "confidence": 0.815
       },
       {
-        "text": "یہ آؤٹ کلاس خدمات ہیں جو ہمیں فراہم کی جاتی ہیں",
+        "text": "ap apni bati ka nam rako nalyn fatma je",
+        "language": "roman_urdu",
+        "true": "neutral",
+        "predicted": "negative",
+        "confidence": 0.46
+      },
+      {
+        "text": "It is an easy read, but may reguire some additional but basic review of the historical context.",
+        "language": "english",
+        "true": "neutral",
+        "predicted": "positive",
+        "confidence": 0.579
+      },
+      {
+        "text": "بس وال تعمیر کریں",
         "language": "urdu",
         "true": "positive",
         "predicted": "neutral",
-        "confidence": 0.678
+        "confidence": 0.906
       },
       {
-        "text": "Itlaaq Aaj Raat 12 Bajay Se Hoga ",
+        "text": "Hahahahaha wah",
         "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.549
+      },
+      {
+        "text": "Steven spielberg samaji o falahi sargarmiyon mein bhi barh charh kar hissa lete hain",
+        "language": "roman_urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.493
+      },
+      {
+        "text": "Pr Main abhi is mamlay main itnaa depth main ilm nhn rakhtaa or music and songs ko Haram Khayal krtaaa hoon.",
+        "language": "mixed_roman_english",
         "true": "neutral",
         "predicted": "negative",
-        "confidence": 0.616
+        "confidence": 0.689
+      },
+      {
+        "text": "براڈ وے کی بحالی",
+        "language": "urdu",
+        "true": "positive",
+        "predicted": "neutral",
+        "confidence": 0.36
+      },
+      {
+        "text": "سر جی یہ مسئلہ پیش آئی رہا ہے حَل کردے",
+        "language": "urdu",
+        "true": "neutral",
+        "predicted": "negative",
+        "confidence": 0.541
+      },
+      {
+        "text": "اچھی چیزوں پر ہمیشہ فروخت کا نشان ہوتا ہے",
+        "language": "urdu",
+        "true": "neutral",
+        "predicted": "positive",
+        "confidence": 0.876
+      },
+      {
+        "text": "There is enough room to store my whole music collection plus many photos.",
+        "language": "english",
+        "true": "positive",
+        "predicted": "negative",
+        "confidence": 0.648
       }
     ],
     "notes": [
@@ -1002,5 +1002,409 @@
         "1,000 review sentences; binary only, so it adds no neutral examples."
       ]
     }
-  ]
+  ],
+  "transformer_only_test": {
+    "n": 3867,
+    "accuracy": 0.7114,
+    "macro_f1": 0.7115,
+    "weighted_f1": 0.712,
+    "per_class": {
+      "negative": {
+        "precision": 0.6337,
+        "recall": 0.7892,
+        "f1": 0.703,
+        "support": 1162
+      },
+      "neutral": {
+        "precision": 0.7289,
+        "recall": 0.6854,
+        "f1": 0.7065,
+        "support": 1338
+      },
+      "positive": {
+        "precision": 0.7892,
+        "recall": 0.6708,
+        "f1": 0.7252,
+        "support": 1367
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "matrix": [
+        [
+          917,
+          154,
+          91
+        ],
+        [
+          267,
+          917,
+          154
+        ],
+        [
+          263,
+          187,
+          917
+        ]
+      ]
+    },
+    "ece": 0.0303
+  },
+  "transformer_only_by_language": {
+    "english": {
+      "n": 622,
+      "accuracy": 0.8183,
+      "macro_f1": 0.766,
+      "weighted_f1": 0.815,
+      "per_class": {
+        "negative": {
+          "precision": 0.8091,
+          "recall": 0.8803,
+          "f1": 0.8432,
+          "support": 284
+        },
+        "neutral": {
+          "precision": 0.7,
+          "recall": 0.5385,
+          "f1": 0.6087,
+          "support": 78
+        },
+        "positive": {
+          "precision": 0.8577,
+          "recall": 0.8346,
+          "f1": 0.846,
+          "support": 260
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            250,
+            10,
+            24
+          ],
+          [
+            24,
+            42,
+            12
+          ],
+          [
+            35,
+            8,
+            217
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "mixed_roman_english": {
+      "n": 84,
+      "accuracy": 0.619,
+      "macro_f1": 0.6241,
+      "weighted_f1": 0.6138,
+      "per_class": {
+        "negative": {
+          "precision": 0.4762,
+          "recall": 0.9091,
+          "f1": 0.625,
+          "support": 22
+        },
+        "neutral": {
+          "precision": 0.7619,
+          "recall": 0.4324,
+          "f1": 0.5517,
+          "support": 37
+        },
+        "positive": {
+          "precision": 0.7619,
+          "recall": 0.64,
+          "f1": 0.6957,
+          "support": 25
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            20,
+            2,
+            0
+          ],
+          [
+            16,
+            16,
+            5
+          ],
+          [
+            6,
+            3,
+            16
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "mixed_urdu_english": {
+      "n": 25,
+      "accuracy": 0.88,
+      "macro_f1": 0.7799,
+      "weighted_f1": 0.8679,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 2
+        },
+        "neutral": {
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f1": 0.9231,
+          "support": 18
+        },
+        "positive": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            18,
+            0
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ]
+      },
+      "reliable": false,
+      "note": "Only 25 test examples — too few for a reliable estimate.",
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "roman_urdu": {
+      "n": 2103,
+      "accuracy": 0.6515,
+      "macro_f1": 0.6511,
+      "weighted_f1": 0.6535,
+      "per_class": {
+        "negative": {
+          "precision": 0.5355,
+          "recall": 0.7509,
+          "f1": 0.6252,
+          "support": 582
+        },
+        "neutral": {
+          "precision": 0.7133,
+          "recall": 0.6329,
+          "f1": 0.6707,
+          "support": 790
+        },
+        "positive": {
+          "precision": 0.7389,
+          "recall": 0.5923,
+          "f1": 0.6576,
+          "support": 731
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            437,
+            93,
+            52
+          ],
+          [
+            189,
+            500,
+            101
+          ],
+          [
+            190,
+            108,
+            433
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "uncertain": {
+      "n": 3,
+      "accuracy": 1.0,
+      "macro_f1": 0.3333,
+      "weighted_f1": 1.0,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "neutral": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "reliable": false,
+      "note": "Only 3 test examples — too few for a reliable estimate.",
+      "labels_present": [
+        "neutral"
+      ]
+    },
+    "urdu": {
+      "n": 1030,
+      "accuracy": 0.7718,
+      "macro_f1": 0.77,
+      "weighted_f1": 0.7716,
+      "per_class": {
+        "negative": {
+          "precision": 0.7491,
+          "recall": 0.7684,
+          "f1": 0.7586,
+          "support": 272
+        },
+        "neutral": {
+          "precision": 0.7478,
+          "recall": 0.8204,
+          "f1": 0.7824,
+          "support": 412
+        },
+        "positive": {
+          "precision": 0.8294,
+          "recall": 0.7168,
+          "f1": 0.769,
+          "support": 346
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            209,
+            48,
+            15
+          ],
+          [
+            38,
+            338,
+            36
+          ],
+          [
+            32,
+            66,
+            248
+          ]
+        ]
+      },
+      "reliable": true,
+      "labels_present": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    }
+  },
+  "ensemble": {
+    "display_name": "LingoAI sentiment (fine-tuned Multilingual MiniLM + TF-IDF blend)",
+    "weight_transformer": 0.35,
+    "weight_tfidf": 0.65,
+    "temperature": 0.8,
+    "low_confidence": 0.55,
+    "chosen_on": "validation split (grid 0.00-1.00 step 0.05, macro-F1)",
+    "val_macro_f1": {
+      "transformer": 0.7089,
+      "tfidf": 0.7116,
+      "blend": 0.7336
+    },
+    "tfidf_model": "char 2-5 (char_wb, top 200k) + word 1-2 TF-IDF, logistic regression C=1, class-balanced",
+    "numpy_vs_sklearn_max_prob_diff": 1.1102230246251565e-15
+  }
 }

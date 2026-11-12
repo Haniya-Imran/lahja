@@ -135,6 +135,13 @@ def test_export_bad_format():
     assert client.post("/api/reports/export", json={"items": [], "format": "xlsx"}).status_code == 422
 
 
+def test_served_model_is_blend():
+    j = client.get("/api/model-info").json()
+    ens = j["metadata"].get("ensemble")
+    assert ens and 0 < ens["weight_transformer"] < 1
+    assert j["card"]["served_model_test"]["macro_f1"] >= j["card"]["transformer_only_test"]["macro_f1"]
+
+
 def test_examples():
     j = client.get("/api/examples").json()
     assert len(j["examples"]) >= 6

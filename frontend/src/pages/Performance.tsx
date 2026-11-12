@@ -17,8 +17,6 @@ export default function Performance() {
   const comp = c.model_comparison
   const langs = Object.entries(c.test_by_language as Record<string, any>).sort((a, b) => b[1].n - a[1].n)
   const reliable = langs.filter(([, v]) => v.reliable)
-  const wins = base ? reliable.filter(([k, v]) => v.macro_f1 > (base.test_by_language[k]?.macro_f1 ?? 1)).map(([k]) => LANG_LABEL[k]) : []
-  const losses = base ? reliable.filter(([k, v]) => v.macro_f1 < (base.test_by_language[k]?.macro_f1 ?? 0)).map(([k]) => LANG_LABEL[k]) : []
 
   return (
     <>
@@ -26,19 +24,25 @@ export default function Performance() {
         lead={<>Every number on this page was measured on the held-out test split ({t.n.toLocaleString()} reviews) that was never used for training, early stopping or calibration. It is the exact compressed model that this site serves.</>} />
       <div className="stack">
         <div className="kpis">
-          <Kpi ink label="Macro-F1" value={t.macro_f1.toFixed(3)} info="Average of the F1 score of the three classes, so each sentiment counts equally." hint={base ? `baseline ${base.test.macro_f1.toFixed(3)}` : undefined} />
+          <Kpi ink label="Macro-F1 (served)" value={t.macro_f1.toFixed(3)} info="Average of the F1 score of the three classes, so each sentiment counts equally." hint={c.transformer_only_test ? `Transformer alone ${c.transformer_only_test.macro_f1.toFixed(3)}` : undefined} />
           <Kpi label="Accuracy" value={pct(t.accuracy)} hint={base ? `baseline ${pct(base.test.accuracy)}` : undefined} />
           <Kpi label="Weighted F1" value={t.weighted_f1.toFixed(3)} />
-          <Kpi label="Calibration error" value={t.ece.toFixed(3)} info="Expected calibration error: gap between confidence and actual accuracy. Lower is better; 0 is perfect." hint={`temperature ${m.temperature}`} />
-          <Kpi label="Model size" value={`${m.size_mb} MB`} hint={`int8 ONNX · ${c.throughput_reviews_per_sec_2cpu} reviews/s on 2 CPUs`} />
+          <Kpi label="Calibration error" value={t.ece.toFixed(3)} info="Expected calibration error: gap between confidence and actual accuracy. Lower is better; 0 is perfect." hint={`calibrated on validation (T=${c.ensemble?.temperature ?? m.temperature})`} />
+          <Kpi label="Model size" value={`${m.size_mb} MB`} hint={`Transformer (int8 ONNX) + small TF-IDF model · ${c.throughput_reviews_per_sec_2cpu} reviews/s on 2 CPUs`} />
         </div>
 
-        {base && (
-          <div className="note ink">
-            <b>Honest comparison:</b> overall, the Transformer scores {t.macro_f1.toFixed(3)} macro-F1 and the simple TF-IDF baseline {base.test.macro_f1.toFixed(3)} on the same test reviews.
-            {wins.length > 0 && <> The Transformer is better on {wins.join(', ')}.</>}
-            {losses.length > 0 && <> The baseline is better on {losses.join(', ')}, where informal spellings vary a lot and character patterns help.</>}
-            {' '}LingoAI serves the Transformer because it handles meaning and word order and gives calibrated confidence and word-level explanations.
+        {c.ensemble && c.transformer_only_test && base && (
+          <div className="card">
+            <div className="card-head"><div><h3>How the served model is built<Info text="Both models score every review; their probabilities are mixed with fixed weights chosen on the validation split, then re-calibrated." /></h3>
+              <p className="sub">{Math.round(c.ensemble.weight_transformer * 100)}% fine-tuned Transformer + {Math.round(c.ensemble.weight_tfidf * 100)}% TF-IDF character model. Weights chosen on {c.ensemble.chosen_on}.</p></div></div>
+            <div className="table-wrap"><table className="tbl">
+              <thead><tr><th>Model (same {t.n.toLocaleString()} test reviews)</th><th className="n">Macro-F1</th><th className="n">Accuracy</th>{reliable.map(([k]) => <th key={k} className="n">{LANG_LABEL[k]}</th>)}</tr></thead>
+              <tbody>
+                <tr><td>Fine-tuned Transformer only</td><td className="n">{c.transformer_only_test.macro_f1.toFixed(3)}</td><td className="n">{pct(c.transformer_only_test.accuracy)}</td>{reliable.map(([k]) => <td key={k} className="n">{c.transformer_only_by_language[k]?.macro_f1?.toFixed(3) ?? '—'}</td>)}</tr>
+                <tr><td>TF-IDF model only</td><td className="n">{base.test.macro_f1.toFixed(3)}</td><td className="n">{pct(base.test.accuracy)}</td>{reliable.map(([k]) => <td key={k} className="n">{base.test_by_language[k]?.macro_f1?.toFixed(3) ?? '—'}</td>)}</tr>
+                <tr style={{ fontWeight: 700 }}><td>LingoAI blend (served)</td><td className="n">{t.macro_f1.toFixed(3)}</td><td className="n">{pct(t.accuracy)}</td>{reliable.map(([k, v]) => <td key={k} className="n">{v.macro_f1.toFixed(3)}</td>)}</tr>
+              </tbody></table></div>
+            <p className="small muted" style={{ marginTop: 10 }}>The Transformer understands meaning and word order; the character model copes better with the many spellings of Roman Urdu. Together they beat each one alone on the overall test score.</p>
           </div>
         )}
 
@@ -49,7 +53,7 @@ export default function Performance() {
             <div><div className="label">Training</div><p className="num">{(tr.train_rows || 0).toLocaleString()} reviews · {tr.history?.length || 0} evaluations · best epoch {tr.best?.epoch} · {tr.minutes_total} min on CPU</p></div>
             <div><div className="label">Trainable parameters</div><p className="num">{(tr.trainable_params || 0).toLocaleString()} — every weight was fine-tuned{c.vocab_trimming.before_training ? ` (down from ${(c.vocab_trimming.before_training.params_before / 1e6).toFixed(0)}M after trimming the vocabulary)` : ''}</p></div>
             <div><div className="label">Compression</div><p className="num">Vocabulary {(c.vocab_trimming.before_training?.original_pieces ?? c.vocab_trimming.original_pieces).toLocaleString()} → {c.vocab_trimming.kept_pieces.toLocaleString()} pieces (test text never used); int8 weights. Agrees with the full-precision model on {pct(c.served_vs_pytorch_agreement)} of test reviews.</p></div>
-            <div><div className="label">Full-precision test macro-F1</div><p className="num">{c.pytorch_fp32_test.macro_f1.toFixed(3)} (served: {t.macro_f1.toFixed(3)})</p></div>
+            <div><div className="label">Transformer test macro-F1</div><p className="num">full precision {c.pytorch_fp32_test.macro_f1.toFixed(3)}, int8 {(c.transformer_only_test ?? t).macro_f1.toFixed(3)}</p></div>
             <div><div className="label">Low confidence (&lt; {Math.round(c.low_confidence.threshold * 100)}%)</div><p className="num">{pct(c.low_confidence.share)} of test reviews; accuracy {pct(c.low_confidence.accuracy_low)} vs {pct(c.low_confidence.accuracy_rest)} for the rest</p></div>
           </div>
         </div>
@@ -70,9 +74,9 @@ export default function Performance() {
         </div>
 
         <div className="card">
-          <div className="card-head"><div><h3>By language<Info text="Language as detected by LingoAI's language detector. Groups with fewer than 30 test reviews are marked unreliable." /></h3><p className="sub">Fine-tuned Transformer vs the TF-IDF + logistic-regression baseline on the same test reviews.</p></div></div>
+          <div className="card-head"><div><h3>By language<Info text="Language as detected by LingoAI's language detector. Groups with fewer than 30 test reviews are marked unreliable." /></h3><p className="sub">Served LingoAI model vs the TF-IDF + logistic-regression baseline on the same test reviews.</p></div></div>
           <Plot label="Macro-F1 by language, Transformer vs baseline" height={280} data={[
-            { type: 'bar', name: 'LingoAI Transformer', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([, v]) => v.macro_f1), marker: { color: '#3B36A8' } },
+            { type: 'bar', name: 'LingoAI (served)', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([, v]) => v.macro_f1), marker: { color: '#3B36A8' } },
             ...(base ? [{ type: 'bar', name: 'TF-IDF baseline', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([k]) => base.test_by_language[k]?.macro_f1 ?? null), marker: { color: '#E8A33D' } }] : []),
           ]} layout={{ barmode: 'group', yaxis: { range: [0, 1], title: { text: 'Macro-F1' } } }} />
           <div className="table-wrap" style={{ marginTop: 10 }}><table className="tbl">
