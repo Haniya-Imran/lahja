@@ -7,6 +7,6 @@ export default defineConfig({
   server: { proxy: { '/api': 'http://127.0.0.1:8000' } },
   build: {
     chunkSizeWarningLimit: 5000,
-    rollupOptions: { output: { manualChunks: (id) => (id.includes('plotly') ? 'plotly' : id.includes('three') || id.includes('@react-three') ? 'three' : undefined) } },
+    rollupOptions: { output: { manualChunks: (id) => (id.includes('plotly') ? 'plotly' : undefined) } },
   },
 })

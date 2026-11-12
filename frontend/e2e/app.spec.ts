@@ -15,7 +15,7 @@ test('landing renders 3D hero, live demo works, links to workspace', async ({ pa
   const errors = watchErrors(page)
   await page.goto('/')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('tone')
-  await expect(page.locator('canvas')).toBeVisible()
+  await expect(page.locator('.fc-stamp').first()).toBeVisible({ timeout: 30000 })
   await page.getByRole('button', { name: 'Analyse', exact: true }).click()
   await expect(page.locator('.l-demo-out .badge').first()).toBeVisible({ timeout: 30000 })
   await expect(page.locator('.l-proof')).toBeVisible()

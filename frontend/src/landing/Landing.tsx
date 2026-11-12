@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import FloatingCards from './FloatingCards'
 import { Link } from 'react-router-dom'
 import { BRAND, pct } from '../brand'
 import { Logo } from '../components/ui'
@@ -7,13 +8,7 @@ import { api, hasUrdu, type Result } from '../lib/api'
 import { SENT_COLOR, SENT_LABEL, LANG_LABEL } from '../brand'
 import './landing.css'
 
-const Hero3D = lazy(() => import('./Hero3D'))
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-function useReducedMotion() {
-  const [r] = useState(() => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
-  return r
-}
 
 function LiveDemo() {
   const [text, setText] = useState('Delivery late thi lekin product bohat acha hai')
@@ -51,7 +46,6 @@ function LiveDemo() {
 }
 
 export default function Landing() {
-  const reduced = useReducedMotion()
   const [card, setCard] = useState<any>(null)
   useEffect(() => { document.title = `${BRAND.name} — Multilingual Review Intelligence`; fetchModelInfo().then(setCard).catch(() => setCard(null)) }, [])
   const t = card?.card?.served_model_test
@@ -73,8 +67,7 @@ export default function Landing() {
           <p className="small muted" style={{ marginTop: 14 }}>No sign-up. Reviews are processed in memory and not stored.</p>
         </div>
         <div className="l-hero-3d">
-          {reduced ? <div className="l-static" aria-hidden="true"><span className="ur">بہت زبردست</span><span>bohat acha</span><span>not worth it</span></div>
-            : <Suspense fallback={<div className="l-static" />}><Hero3D /></Suspense>}
+          <FloatingCards />
         </div>
       </section>
 
