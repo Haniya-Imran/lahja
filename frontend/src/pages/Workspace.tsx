@@ -30,7 +30,7 @@ export default function Workspace() {
     <div className="ws">
       <a href="#main" className="sr-only">Skip to content</a>
       <aside className="ws-side">
-        <Link to="/" className="brand" aria-label={`${BRAND.name} home`}><Logo size={32} /><b>{BRAND.name}</b></Link>
+        <Link to="/" className="brand" aria-label={`${BRAND.name} home`}><Logo size={32} /><b>Lingo<em className="ai">AI</em></b></Link>
         <nav className="ws-nav" aria-label="Workspace">
           {TABS.map(([to, label, ic]) => <NavLink key={to} to={to} end={to === '/app'}><Icon d={I[ic]} /><span>{label}</span></NavLink>)}
         </nav>

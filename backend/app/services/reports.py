@@ -10,7 +10,7 @@ from nlp.language_detection.detect import LABELS as LANG_LABELS
 
 from . import analytics as analytics_service
 
-BRAND = "Lahja"
+BRAND = "LingoAI"
 
 
 def results_csv(items: list[dict]) -> str:

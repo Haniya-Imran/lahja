@@ -38,7 +38,7 @@ export default function Performance() {
             <b>Honest comparison:</b> overall, the Transformer scores {t.macro_f1.toFixed(3)} macro-F1 and the simple TF-IDF baseline {base.test.macro_f1.toFixed(3)} on the same test reviews.
             {wins.length > 0 && <> The Transformer is better on {wins.join(', ')}.</>}
             {losses.length > 0 && <> The baseline is better on {losses.join(', ')}, where informal spellings vary a lot and character patterns help.</>}
-            {' '}Lahja serves the Transformer because it handles meaning and word order and gives calibrated confidence and word-level explanations.
+            {' '}LingoAI serves the Transformer because it handles meaning and word order and gives calibrated confidence and word-level explanations.
           </div>
         )}
 
@@ -70,9 +70,9 @@ export default function Performance() {
         </div>
 
         <div className="card">
-          <div className="card-head"><div><h3>By language<Info text="Language as detected by Lahja's language detector. Groups with fewer than 30 test reviews are marked unreliable." /></h3><p className="sub">Fine-tuned Transformer vs the TF-IDF + logistic-regression baseline on the same test reviews.</p></div></div>
+          <div className="card-head"><div><h3>By language<Info text="Language as detected by LingoAI's language detector. Groups with fewer than 30 test reviews are marked unreliable." /></h3><p className="sub">Fine-tuned Transformer vs the TF-IDF + logistic-regression baseline on the same test reviews.</p></div></div>
           <Plot label="Macro-F1 by language, Transformer vs baseline" height={280} data={[
-            { type: 'bar', name: 'Lahja Transformer', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([, v]) => v.macro_f1), marker: { color: '#3B36A8' } },
+            { type: 'bar', name: 'LingoAI Transformer', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([, v]) => v.macro_f1), marker: { color: '#3B36A8' } },
             ...(base ? [{ type: 'bar', name: 'TF-IDF baseline', x: langs.map(([k]) => LANG_LABEL[k]), y: langs.map(([k]) => base.test_by_language[k]?.macro_f1 ?? null), marker: { color: '#E8A33D' } }] : []),
           ]} layout={{ barmode: 'group', yaxis: { range: [0, 1], title: { text: 'Macro-F1' } } }} />
           <div className="table-wrap" style={{ marginTop: 10 }}><table className="tbl">

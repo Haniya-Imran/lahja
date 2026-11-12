@@ -27,12 +27,12 @@ export default function Languages() {
   return (
     <>
       <PageHead eyebrow="Language & script intelligence" title="Language Insights"
-        lead="How Lahja tells Urdu script, Roman Urdu, English and code-switched text apart, what the training data looks like per language, and how well the model does on each." />
+        lead="How LingoAI tells Urdu script, Roman Urdu, English and code-switched text apart, what the training data looks like per language, and how well the model does on each." />
       <div className="stack">
         <div className="grid g3">
           {[
             ['Urdu script', 'If at least 85% of letters are Urdu/Arabic script, the review is Urdu. Between 15% and 85% it is mixed Urdu + English.'],
-            ['Roman Urdu vs English', 'Both use Latin letters, so Lahja uses a character n-gram model and word lists learned only from the training reviews, plus a public Roman Urdu dictionary.'],
+            ['Roman Urdu vs English', 'Both use Latin letters, so LingoAI uses a character n-gram model and word lists learned only from the training reviews, plus a public Roman Urdu dictionary.'],
             ['Code-switching', 'A Latin-script review is mixed when it has enough known words of both languages and the smaller one is at least a quarter of them. Very short or unknown text is marked uncertain.'],
           ].map(([t, d]) => <div className="card" key={t}><h3 style={{ fontSize: 16, marginBottom: 6 }}>{t}</h3><p className="small muted">{d}</p></div>)}
         </div>

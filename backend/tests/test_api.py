@@ -128,7 +128,7 @@ def test_export_csv_and_html():
     assert r.status_code == 200 and r.text.startswith("﻿review,language,sentiment")
     assert len(r.text.strip().splitlines()) == 6
     h = client.post("/api/reports/export", json={"items": items, "format": "html"})
-    assert h.status_code == 200 and "<html" in h.text.lower() and "Lahja" in h.text
+    assert h.status_code == 200 and "<html" in h.text.lower() and "LingoAI" in h.text
 
 
 def test_export_bad_format():

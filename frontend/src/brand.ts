@@ -1,6 +1,6 @@
 export const BRAND = {
-  name: 'Lahja',
-  meaning: 'لہجہ — tone of voice',
+  name: 'LingoAI',
+  meaning: 'Multilingual review intelligence',
   tagline: 'Hear the tone in every review — Urdu, Roman Urdu, English or all three at once.',
   author: 'Haniya Imran',
 }

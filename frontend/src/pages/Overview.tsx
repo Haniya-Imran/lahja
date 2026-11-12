@@ -24,11 +24,11 @@ export default function Overview() {
   return (
     <>
       <PageHead eyebrow="Workspace" title="Overview"
-        lead="Lahja reads customer reviews the way people in Pakistan actually write them — in Urdu script, in Roman Urdu, in English, and in all of them at once."
+        lead="LingoAI reads customer reviews the way people in Pakistan actually write them — in Urdu script, in Roman Urdu, in English, and in all of them at once."
         actions={<><Link className="btn btn-primary" to="/app/analyze">Analyse a review</Link><Link className="btn" to="/app/bulk">Upload a CSV</Link></>} />
       <div className="stack">
         <div className="card">
-          <div className="card-head"><div><h3>How a review flows through Lahja</h3><p className="sub">Each stage is a separate module in the code, from input to report.</p></div></div>
+          <div className="card-head"><div><h3>How a review flows through LingoAI</h3><p className="sub">Each stage is a separate module in the code, from input to report.</p></div></div>
           <ol className="pipeline">{STAGES.map(([t, d], i) => <li key={t}><span className="num">{i + 1}</span><b>{t}</b><small>{d}</small></li>)}</ol>
         </div>
         {q.loading ? <Loading label="Loading model facts…" /> : q.error ? <ErrorState message={q.error} onRetry={q.retry} /> : t && (

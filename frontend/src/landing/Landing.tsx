@@ -53,7 +53,7 @@ export default function Landing() {
   return (
     <div className="landing">
       <header className="l-nav">
-        <Link to="/" className="brand"><Logo size={34} /><b>{BRAND.name}</b></Link>
+        <Link to="/" className="brand"><Logo size={34} /><b>Lingo<em className="ai">AI</em></b></Link>
         <nav className="l-links" aria-label="Sections"><a href="#how">How it works</a><a href="#proof">Results</a><a href="#limits">Limits</a></nav>
         <Link to="/app" className="btn btn-primary">Open workspace</Link>
       </header>
@@ -62,7 +62,7 @@ export default function Landing() {
         <div className="l-hero-copy">
           <span className="eyebrow">Urdu · Roman Urdu · English · Mixed</span>
           <h1>Hear the <em>tone</em> in every review.</h1>
-          <p className="l-lead">{BRAND.name} — <span className="ur">لہجہ</span>, “tone of voice” — reads customer reviews in the scripts people really use and tells you how they feel, how sure it is, and which words decided it.</p>
+          <p className="l-lead">{BRAND.name} reads customer reviews in the scripts people really use and tells you how they feel, how sure it is, and which words decided it.</p>
           <div className="row"><Link to="/app/analyze" className="btn btn-primary btn-lg">Analyse a review</Link><Link to="/app/bulk" className="btn btn-lg">Upload a CSV</Link></div>
           <p className="small muted" style={{ marginTop: 14 }}>No sign-up. Reviews are processed in memory and not stored.</p>
         </div>

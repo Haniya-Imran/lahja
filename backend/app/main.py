@@ -20,7 +20,7 @@ logging.basicConfig(level=settings.log_level, format="%(asctime)s %(levelname)s 
 log = logging.getLogger("reviews.api")
 
 app = FastAPI(
-    title="Lahja API",
+    title="LingoAI API",
     version="1.0.0",
     docs_url="/api/docs",
     openapi_url="/api/openapi.json",

@@ -13,7 +13,7 @@ interface SessionState {
 }
 
 const Ctx = createContext<SessionState | null>(null)
-const KEY = 'lahja.session'
+const KEY = 'lingoai.session'
 const MAX = 20000
 
 function load(): Entry[] {

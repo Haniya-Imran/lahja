@@ -1,6 +1,6 @@
-# Lahja — Multilingual Review Intelligence
+# LingoAI — Multilingual Review Intelligence
 
-**Lahja** (لہجہ, “tone of voice”) analyses customer reviews written in **Urdu script, Roman Urdu, English and code-switched (mixed) text**.
+**LingoAI** analyses customer reviews written in **Urdu script, Roman Urdu, English and code-switched (mixed) text**.
 A fine-tuned multilingual Transformer predicts positive / neutral / negative sentiment with calibrated confidence and word-level explanations,
 and the workspace adds bulk CSV analysis, session analytics and downloadable reports. No login.
 

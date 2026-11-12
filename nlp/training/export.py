@@ -164,7 +164,7 @@ def main():
     (out / "tokenizer.json").write_text(json.dumps(new_tok_json, ensure_ascii=False))
     ckpt_log = json.loads((ckpt / "training_log.json").read_text()) if (ckpt / "training_log.json").exists() else {}
     meta = {
-        "display_name": "Lahja sentiment (fine-tuned Multilingual MiniLM, int8)",
+        "display_name": "LingoAI sentiment (fine-tuned Multilingual MiniLM, int8)",
         "version": "1.0.0", "labels": LABELS, "max_len": a.max_len, "stride": 32, "temperature": T,
         "low_confidence": 0.55, "onnx_file": "model.onnx", "cls_token": "<s>", "sep_token": "</s>", "pad_token": "<pad>",
         "base_model": a.base_model, "base_model_license": "MIT", "tokenizer": "XLM-R SentencePiece (trimmed)",

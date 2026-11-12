@@ -36,7 +36,7 @@ export default function Analyzer() {
   return (
     <>
       <PageHead eyebrow="Single review" title="Review Analyzer"
-        lead="Paste one review in Urdu, Roman Urdu, English or a mix. Lahja detects the language, cleans the text, runs the fine-tuned Transformer and shows which words drove the result." />
+        lead="Paste one review in Urdu, Roman Urdu, English or a mix. LingoAI detects the language, cleans the text, runs the fine-tuned Transformer and shows which words drove the result." />
       <div className="grid g2" style={{ alignItems: 'start' }}>
         <div className="stack">
           <div className="card">

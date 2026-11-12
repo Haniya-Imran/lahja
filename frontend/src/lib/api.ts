@@ -93,7 +93,7 @@ export async function exportReport(items: SummaryItem[], format: 'csv' | 'html')
   const blob = await res.blob()
   const a = document.createElement('a')
   a.href = URL.createObjectURL(blob)
-  a.download = format === 'csv' ? 'lahja-review-analysis.csv' : 'lahja-review-report.html'
+  a.download = format === 'csv' ? 'lingoai-review-analysis.csv' : 'lingoai-review-report.html'
   document.body.appendChild(a); a.click(); a.remove()
   setTimeout(() => URL.revokeObjectURL(a.href), 3000)
 }

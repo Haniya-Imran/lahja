@@ -87,7 +87,7 @@ export default function Bulk() {
   return (
     <>
       <PageHead eyebrow="Many reviews" title="Bulk Analysis"
-        lead="Upload a CSV of reviews (up to 5,000 rows, 4 MB) or paste one review per line. Lahja suggests the review column, analyses in small batches and keeps the results in this browser tab." />
+        lead="Upload a CSV of reviews (up to 5,000 rows, 4 MB) or paste one review per line. LingoAI suggests the review column, analyses in small batches and keeps the results in this browser tab." />
       <div className="card">
         <div className="card-head">
           <div className="segmented" role="tablist">

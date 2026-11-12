@@ -1,4 +1,4 @@
-/* ===== Lahja design system — "ink & paper" ===== */
+/* ===== LingoAI design system — "ink & paper" ===== */
 :root {
   --font-display: "Fraunces Variable", Georgia, serif;
   --font-ui: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -188,3 +188,4 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .tile { text-decoration: none; color: inherit; transition: transform .18s, border-color .18s; }
 .tile:hover { transform: translateY(-3px); border-color: var(--indigo); }
 .tile h3 { font-size: 17px; margin-bottom: 6px; }
+.brand b em.ai { font-style: normal; color: var(--saffron-deep); margin-left: 1px; }

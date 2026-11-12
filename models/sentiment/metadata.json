@@ -1,5 +1,5 @@
 {
-  "display_name": "Lahja sentiment (fine-tuned Multilingual MiniLM, int8)",
+  "display_name": "LingoAI sentiment (fine-tuned Multilingual MiniLM, int8)",
   "version": "1.0.0",
   "labels": [
     "negative",
